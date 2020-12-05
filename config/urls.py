@@ -2,7 +2,7 @@ from django.conf import settings
 from django.contrib import admin
 from django.urls import include, path
 # from rest_framework.documentation import include_docs_urls
-# from drf_spectacular.views import SpectacularAPIView, SpectacularRedocView, SpectacularSwaggerView
+from drf_spectacular.views import SpectacularAPIView, SpectacularRedocView, SpectacularSwaggerView
 from rest_framework import routers
 
 from apiv0 import views as apiv0_views
@@ -22,11 +22,11 @@ urlpatterns = [
     path('api/v2/', include(router.urls)),
 ]
 
-# if settings.DEBUG:
-#     # urlpatterns += [path('docs/', include_docs_urls(title='APIドキュメント'))]
-#     urlpatterns += [
-#         path('api/schema/', SpectacularAPIView.as_view(), name='schema'),
-#         path('api/schema/swagger-ui/', SpectacularSwaggerView.as_view(url_name='schema'),
-#              name='swagger-ui'),
-#         path('api/schema/redoc/', SpectacularRedocView.as_view(url_name='schema'), name='redoc'),
-#     ]
+if settings.DEBUG:
+    # urlpatterns += [path('docs/', include_docs_urls(title='APIドキュメント'))]
+    urlpatterns += [
+        path('api/schema/', SpectacularAPIView.as_view(), name='schema'),
+        path('api/schema/swagger-ui/', SpectacularSwaggerView.as_view(url_name='schema'),
+             name='swagger-ui'),
+        path('api/schema/redoc/', SpectacularRedocView.as_view(url_name='schema'), name='redoc'),
+    ]

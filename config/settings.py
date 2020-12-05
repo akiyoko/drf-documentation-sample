@@ -40,7 +40,7 @@ INSTALLED_APPS = [
 
     # 3rd party apps
     'rest_framework',
-    # 'drf_spectacular',  # 追加
+    'drf_spectacular',  # 追加
 
     # My applications
     'shop.apps.ShopConfig',
@@ -132,5 +132,5 @@ STATIC_URL = '/static/'
 
 # Django REST Framework
 REST_FRAMEWORK = {
-    # 'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',  # 追加
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',  # 追加
 }
